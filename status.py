@@ -1,0 +1,35 @@
+print('Olá, vamos fazer o calculo desse bagulho kkkk')
+I = int(input('Me diga a sua INTELIGÊNCIA?\nDigite aqui: '))
+# print('Burro pra krai kkkkk')
+C = int(input('Agora o CARISMA?\nDigite aqui: '))
+# print('O cara não sabe socializar kkkkk')
+F = int(input('Sobre a FORÇA?\nDigite aqui: '))
+# print('Não consegue levantar um galão de água kkkkkkk')
+A = int(input('Me diga agora a sua AGILIDADE?\nDigite aqui: '))
+# print('Não consegue fugir de uma lesma kkkkkk')
+c = int(input('Por último, sobre sua CONSTITUIÇÃO?\nDigite aqui: '))
+#print('Vou nem comentar...')
+print('Vamos calcular os seus status agora: ')
+mana = 20 + 5 * I
+vida = 20 + 5 * C
+stamina = 20 + 5 * (A + F)
+print('='*20)
+print('Sua MANA inicial é: {}'.format(mana))
+print('Sua VIDA inicial: {}'.format(vida))
+print('Sua STAMINA é: {}'.format(stamina))
+print('='*20)
+print('Agora sobre suas resistência...')
+rf = c + F * 2
+rm = c + I
+print('='*20)
+print('Sua RESISTÊNCIA FÍSICA é: {}'.format(rf))
+print('Sua RESISTÊNCIA MÁGICA é: {}'.format(rm))
+print('='*20)
+print('Agora sobre sobre os alcances...')
+m = 3 + A
+am = 4 + I
+af = 1
+print('='*20)
+print('Sua MOVIMENTAÇÃO é: {}'.format(m))
+print('Seu ALCANCE MÁGICO é: {}'. format(am))
+print('Seu ALCANCE FÍSICO é: {}'.format(af))
