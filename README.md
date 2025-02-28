@@ -1,2 +1,1 @@
 # Betsu-RPG
-# Betsu-RPG
