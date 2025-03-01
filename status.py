@@ -18,7 +18,7 @@ nivel = int(input('Agora, me diga o seu nível (começando do nível 1): '))
 
 print('Vamos calcular os seus status agora: ')
 mana = 20 + 5 * I + 10 * (nivel - 1)  # +10 de mana por nível
-vida = 20 + 5 * C + 5 * (nivel - 1)   # +5 de vida por nível
+vida = 20 + 5 * c + 5 * (nivel - 1)   # +5 de vida por nível
 stamina = 20 + 5 * (A + F) + 10 * (nivel - 1)  # +10 de stamina por nível
 
 print('='*20)
