@@ -1,18 +1,8 @@
 import random
 import time
 
-# Definir as cores para cada raridade
-cores_raridade = {
-    "Comum": "\033[32m",    # Verde
-    "Incomum": "\033[33m",  # Amarela
-    "Raro": "\033[31m",     # Vermelho
-    "Épico": "\033[35m",    # Roxo
-    "Mítico": "\033[36m",   # Ciano
-    "Calamidade": "\033[35m" # Magenta
-}
-
 # Roleta para decidir se um monstro vai aparecer (50% de chance de "Sim")
-aparece = random.choices(["Sim", "Não"], weights=[80, 20], k=1)[0]
+aparece = random.choices(["Sim", "Não"], weights=[50, 50], k=1)[0]
 
 if aparece == "Não":
     tempo_spawn = 3
@@ -96,17 +86,16 @@ else:
             return None
 
         chances = regioes[regiao]["locais"][local]["monstros"]
+
         num = random.randint(1, 100)
         acumulado = 0
 
-        for monstro, dados in chances.items():
-            raridade = dados["raridade"]
-            chance = dados[horario]
-            acumulado += chance
+        for monstro, chance_por_horario in chances.items():
+            acumulado += chance_por_horario[horario]  # Usa a chance específica do horário
             if num <= acumulado:
-                return monstro, raridade
+                return monstro
 
-        return None, None
+        return None
 
     # Escolha da região
     tempo_spawn = 3
@@ -114,7 +103,7 @@ else:
     print("Escolha a região:")
     print("1 - Askelon")
     print("2 - Netanya")
-    regiao = input("Digite 1 ou 2: ")
+    regiao = input("Digite 1: ")
     print('='*20)
 
     if regiao not in regioes:
@@ -132,6 +121,7 @@ else:
     if local not in regioes[regiao]["locais"]:
         print("Local inválido. Reinicie o programa e tente novamente.")
         exit()
+
 
     nome_local = regioes[regiao]["locais"][local]["nome"]
 
@@ -156,10 +146,13 @@ else:
     print("Aguarde 5 segundos...")
     time.sleep(tempo_espera)
 
-    monstro_apareceu, raridade = escolher_monstro(regiao, local, horario)
+    monstro_apareceu = escolher_monstro(regiao, local, horario)
 
     if monstro_apareceu:
-        cor = cores_raridade.get(raridade, "\033[0m")  # Cor padrão caso a raridade não seja encontrada
         print('='*30)
-        print(f"Um {cor}{monstro_apareceu}\033[0m apareceu na {nome_local} de {nome_regiao} durante a {horario}!")
+        print(f"Um \033[31m{monstro_apareceu}\033[0m apareceu na {nome_local} de {nome_regiao} durante a {horario}!")
+        print('='*30)
+    else:
+        print('='*30)
+        print("Nada apareceu dessa vez...")
         print('='*30)
