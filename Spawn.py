@@ -11,11 +11,13 @@ cores_raridade = {
     "Calamidade": "\033[35m" # Magenta
 }
 
+print ("Rodando...")
+
 # Roleta para decidir se um monstro vai aparecer (50% de chance de "Sim")
 aparece = random.choices(["Sim", "Não"], weights=[80, 20], k=1)[0]
 
 if aparece == "Não":
-    tempo_spawn = 3
+    tempo_spawn = 2
     time.sleep(tempo_spawn)
     print("Nada apareceu dessa vez...")
 else:
@@ -109,7 +111,7 @@ else:
         return None, None
 
     # Escolha da região
-    tempo_spawn = 3
+    tempo_spawn = 2
     time.sleep(tempo_spawn)
     print("Escolha a região:")
     print("1 - Askelon")
@@ -162,4 +164,8 @@ else:
         cor = cores_raridade.get(raridade, "\033[0m")  # Cor padrão caso a raridade não seja encontrada
         print('='*30)
         print(f"Um {cor}{monstro_apareceu}\033[0m apareceu na {nome_local} de {nome_regiao} durante a {horario}!")
+        print('='*30)
+    else:
+        print('='*30)
+        print("Nada apareceu dessa vez...")
         print('='*30)
