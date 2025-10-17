@@ -20,7 +20,7 @@ N = nivel - 1
 
 print('Vamos calcular os seus status agora: ')
 mana = 20 + (5 * I) + (10 * N)  # +10 de mana por nível
-vida = 20 + (5 * c) + (5 * N)   # +5 de vida por nível
+vida = 20 + (5 * Co) + (5 * N)   # +5 de vida por nível
 stamina = 20 + 5 * (A + F) + (10 * N)  # +10 de stamina por nível
 Fr = ((I*Ca)*nivel)
 
