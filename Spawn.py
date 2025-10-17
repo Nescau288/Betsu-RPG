@@ -13,7 +13,7 @@ cores_raridade = {
 
 print ("Rodando...")
 
-# Roleta para decidir se um monstro vai aparecer (50% de chance de "Sim")
+# Roleta para decidir se um monstro vai aparecer (80% de chance de "Sim", 20% de chance de não)
 aparece = random.choices(["Sim", "Não"], weights=[80, 20], k=1)[0]
 
 if aparece == "Não":
@@ -166,6 +166,7 @@ else:
         print(f"Um {cor}{monstro_apareceu}\033[0m apareceu na {nome_local} de {nome_regiao} durante a {horario}!")
         print('='*30)
     else:
+        cor = cores_raridade.get(raridade, "\033[0m")  # Cor padrão caso a raridade não seja encontrada
         print('='*30)
-        print("Nada apareceu dessa vez...")
+        print(f"Um {cor}{monstro_apareceu}\033[0m apareceu na {nome_local} de {nome_regiao} durante a {horario}!")
         print('='*30)
